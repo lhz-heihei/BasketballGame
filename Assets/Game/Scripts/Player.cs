@@ -37,31 +37,7 @@ public class Player : MonoBehaviour
                 break;
             case CharacterState.Dribbling:
                 PlayerMovement();
-                /* if (Input.GetKeyDown(KeyCode.LeftShift))
-                 {
-                     move_speed = 4;
-                     animator.SetBool("iserupt", true);  //运球爆发
-                     animator.SetBool("Walk", false);
-                 } //使用幻数，危险
-                 if (Input.GetKeyUp(KeyCode.LeftShift))
-                 {
-                     move_speed = 2;
-                     animator.SetBool("iserupt", false);
-                 }
-                 if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift))
-                 {
-                     animator.SetBool("Walk", false);
-                     Debug.Log("false");
-                 }
-                     if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !Input.GetKey(KeyCode.LeftShift))
-                 {
-                     animator.SetBool("Walk", true);
-                     Debug.Log("ja");
-                 }
-                 else
-                 {
-                     animator.SetBool("Walk", false);
-                 } */
+                
                 bool isShiftPressed = Input.GetKey(KeyCode.LeftShift);
                 bool isMovementKeyPressed = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
 
@@ -105,6 +81,7 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(moveDir);
             animator.SetBool("Walk", true);
         }
+        else animator.SetBool("Walk", false);
         cc.Move( transform.forward*dir_init.magnitude * move_speed * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.Space)&&!ispicking)
         {

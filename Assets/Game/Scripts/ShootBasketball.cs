@@ -18,6 +18,7 @@ public class ShootBasketball : MonoBehaviour
     public Player player;
     public pickupBasketball _pickupBasketball;
     public bsketball _bsketball;
+    public Vector3 target_xoz;
     void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0)&&player.currentState==Player.CharacterState.Dribbling )
@@ -30,6 +31,14 @@ public class ShootBasketball : MonoBehaviour
             basketball.transform.parent = righthand.transform;
             basketball.transform.localPosition = new Vector3(0, 0, player.hand_baskrtball_distance);
             //basketball.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            //target_xoy = new Vector3(target.transform.position.x ,target.transform.position.y, 0);
+            //target_xoy = new Vector3(target.transform.position.x-player.transform.position.x,0, 0);
+            //player.transform.LookAt(target_xoy);
+            //target_xoy = target.transform.position - player.transform.position;
+            target_xoz = target.position;
+            target_xoz.y = 0;
+            GameObject _player = GameObject.FindGameObjectWithTag("Player");
+            _player.transform.LookAt(target_xoz);
         }
 
         if (isShoot)

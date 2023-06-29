@@ -34870,7 +34870,7 @@ GameObject:
   - component: {fileID: 827226248}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64726,6 +64726,7 @@ MonoBehaviour:
   player: {fileID: 827226246}
   _pickupBasketball: {fileID: 1396660136}
   _bsketball: {fileID: 1483845557}
+  target_xoz: {x: 0, y: 0, z: 0}
 --- !u!114 &1483845557
 MonoBehaviour:
   m_ObjectHideFlags: 0
