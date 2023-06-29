@@ -30,15 +30,13 @@ public class ShootBasketball : MonoBehaviour
             basketball.GetComponent<SphereCollider>().enabled = false;
             basketball.transform.parent = righthand.transform;
             basketball.transform.localPosition = new Vector3(0, 0, player.hand_baskrtball_distance);
-            //basketball.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            //target_xoy = new Vector3(target.transform.position.x ,target.transform.position.y, 0);
-            //target_xoy = new Vector3(target.transform.position.x-player.transform.position.x,0, 0);
-            //player.transform.LookAt(target_xoy);
-            //target_xoy = target.transform.position - player.transform.position;
+           //投篮时候面朝篮筐 
             target_xoz = target.position;
             target_xoz.y = 0;
             GameObject _player = GameObject.FindGameObjectWithTag("Player");
             _player.transform.LookAt(target_xoz);
+            //状态变为shooting
+            player.switchToNewState(Player.CharacterState.Shooting);
         }
 
         if (isShoot)

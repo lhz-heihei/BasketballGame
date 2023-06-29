@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public float hand_baskrtball_distance;
     public ShootBasketball _shootbasketball;
     public pickupBasketball _pickupBasketball;
-    public enum CharacterState { Normal,Dribbling}
+    public enum CharacterState { Normal,Dribbling,Shooting,}
     public CharacterState currentState = CharacterState.Normal;
     private void Start()
     {
@@ -65,6 +65,9 @@ public class Player : MonoBehaviour
                     animator.SetBool("iserupt", false);
                 }
                 break;
+            case CharacterState.Shooting:
+
+                break;
         }
     }
 
@@ -86,7 +89,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)&&!ispicking)
         {
             animator.SetTrigger("Jump");
-            
+           
         }
         if (!cc.isGrounded)
         {
@@ -103,6 +106,8 @@ public class Player : MonoBehaviour
                 break;
             case CharacterState.Dribbling:
                 break;
+            case CharacterState.Shooting:
+                break;
         }
 
         switch (newState)
@@ -115,6 +120,8 @@ public class Player : MonoBehaviour
                 ispicking = true;
                 _bsketball.isdrib = true;
                 break;
+            case CharacterState.Shooting:
+                break;
         }
         currentState = newState;
     }
@@ -124,10 +131,15 @@ public class Player : MonoBehaviour
         _pickupBasketball.pickupAllowed = false;
        // _bsketball.isdrib = false;
         animator.SetBool("pickup", false);
-        switchToNewState(CharacterState.Normal);
+       // switchToNewState(CharacterState.Normal);
         GameObject basketball = GameObject.FindGameObjectWithTag("basketball");
         basketball.transform.parent = null;
         basketball.GetComponent<SphereCollider>().enabled = true;
         _shootbasketball.getInitialInformation();
+    }
+
+    void shootover()
+    {
+        switchToNewState(CharacterState.Normal);
     }
 }
