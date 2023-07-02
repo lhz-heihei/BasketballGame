@@ -56,15 +56,16 @@ public class ShootBasketball : MonoBehaviour
             dir -= Vector3.up * g * Time.deltaTime;
             if (Time.time - timer >= time)
             {
-                isShoot = false;
-                GameObject basketball = GameObject.FindGameObjectWithTag("basketball");
-                basketball.GetComponent<Rigidbody>().useGravity = true;
-                _pickupBasketball.pickupAllowed = true;
-                actualPos = target;
+                stopShooting();
             }
         }
         
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isShoot) stopShooting();    
     }
 
     public void getInitialInformation()
@@ -75,6 +76,15 @@ public class ShootBasketball : MonoBehaviour
         initialDir =  initialDir.normalized*speed;
         dir = initialDir + 0.5f*g*time*Vector3.up;
         timer = Time.time;
+    }
+
+    public void stopShooting()
+    {
+        isShoot = false;
+        GameObject basketball = GameObject.FindGameObjectWithTag("basketball");
+        basketball.GetComponent<Rigidbody>().useGravity = true;
+        _pickupBasketball.pickupAllowed = true;
+        actualPos = target;
     }
 
     public Transform GenerateActualPos(float distance)//生成实际落点
@@ -90,6 +100,7 @@ public class ShootBasketball : MonoBehaviour
         }
         Vector3 randomPosition = Random.onUnitSphere * actual_target_distance;
         randomPosition.y = Mathf.Abs(randomPosition.y);
+        //randomPosition.z = -Mathf.Abs(randomPosition.z);
         GameObject generatedActualPos = Instantiate(actualPosPrefab, target.position + randomPosition, Quaternion.identity);
         return generatedActualPos.transform;//返回实际落点的transform
     }

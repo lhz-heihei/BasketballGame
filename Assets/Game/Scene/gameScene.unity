@@ -10083,7 +10083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243945706}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.002575, z: 0.005055}
+  m_LocalPosition: {x: -0, y: -0.002555, z: 0.005074}
   m_LocalScale: {x: 0.0015500032, y: 0.0015500028, z: 0.0015500028}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31713,6 +31713,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 13564514, guid: d9c4474233978c841b0e70c144c47a7d, type: 3}
+      propertyPath: m_Radius
+      value: 0.2167209
+      objectReference: {fileID: 0}
+    - target: {fileID: 13564514, guid: d9c4474233978c841b0e70c144c47a7d, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -36142,7 +36146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856271055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -3.11, z: 8.064}
+  m_LocalPosition: {x: 0, y: -0, z: -0.173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55858,6 +55862,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6493818, guid: 7472dc33a93a28b49a7168d7b4847f51, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7472dc33a93a28b49a7168d7b4847f51, type: 3}
 --- !u!4 &1276684891 stripped
@@ -64706,7 +64714,7 @@ MonoBehaviour:
   _pickupBasketball: {fileID: 1396660136}
   _bsketball: {fileID: 1483845557}
   target_xoz: {x: 0, y: 0, z: 0}
-  actual_target_distance_max: 0.36
+  actual_target_distance_max: 0.2
   actualPos: {fileID: 0}
 --- !u!114 &1483845557
 MonoBehaviour:
