@@ -33,7 +33,17 @@ public class Player : MonoBehaviour
             case CharacterState.Normal:
                 PlayerMovement();
                 animator.SetFloat("Speed", dir_init.magnitude);
-                
+                bool isShiftPress = Input.GetKey(KeyCode.LeftShift);
+                if(isShiftPress)
+                {
+                    animator.SetBool("iserupt", true);
+                    move_speed = 4;
+                }
+                else
+                {
+                    animator.SetBool("iserupt", false);
+                    move_speed = 2;
+                }
                 break;
             case CharacterState.Dribbling:
                 PlayerMovement();

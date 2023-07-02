@@ -9922,7 +9922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.66
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9930,7 +9930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.21
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34923,7 +34923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827226244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.831, y: 0.888, z: 7.94}
+  m_LocalPosition: {x: 15.34, y: 0.888, z: 13.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46457,60 +46457,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 421204, guid: f53bd203aa5f19a4ba726756bec2eaf4, type: 3}
   m_PrefabInstance: {fileID: 1046557074}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1047671905
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1906371531}
-    m_Modifications:
-    - target: {fileID: 182328, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_Name
-      value: SportGates01 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 182328, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 412022, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 412022, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 412022, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.9906019
-      objectReference: {fileID: 0}
-    - target: {fileID: 412022, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 14.973
-      objectReference: {fileID: 0}
-    - target: {fileID: 412022, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 412022, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 412022, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 412022, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
---- !u!4 &1047671906 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 412022, guid: 140ae0cc72ecaac4fafc7dfe81783693, type: 3}
-  m_PrefabInstance: {fileID: 1047671905}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1049226657 stripped
 Transform:
@@ -64745,6 +64691,10 @@ MonoBehaviour:
   isdrib: 0
   isshoot: 0
   _shootbasketball: {fileID: 1483845551}
+  bounceSpeed: 2
+  bounceMagnitude: 2
+  smoothSpeed: 1
+  targetBounceOffset: 0
 --- !u!1001 &1484044172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65097,7 +65047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 428302, guid: 2ebc8e06f884c75458ee4474267fdde6, type: 3}
       propertyPath: m_RootOrder
-      value: 46
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 428302, guid: 2ebc8e06f884c75458ee4474267fdde6, type: 3}
       propertyPath: m_LocalScale.x
@@ -82819,7 +82769,6 @@ Transform:
   - {fileID: 497107227}
   - {fileID: 464273245}
   - {fileID: 744259939}
-  - {fileID: 1047671906}
   - {fileID: 573680500}
   - {fileID: 97043421}
   - {fileID: 68643037}
