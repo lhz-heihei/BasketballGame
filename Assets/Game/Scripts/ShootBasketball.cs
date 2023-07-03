@@ -12,6 +12,8 @@ public class ShootBasketball : MonoBehaviour
     public Transform target;
     public GameObject actualPosPrefab;
     private Vector3 initialDir,dir;
+    public float g_min;
+    public float g_max;
     public float g;
     public float speed;
     private float timer;
@@ -25,29 +27,33 @@ public class ShootBasketball : MonoBehaviour
     public float actual_target_distance_max;
     private float basket_ThreePointLine_distance = 0.8f;
     public Transform actualPos;
+    public Vector3 player_targetXOZ;
+    private float chargingTime = 0f;
+    public float maxChargeTime; // 设置蓄力上限时间
+
+    private void Start()
+    {
+        g = g_min;
+    }
+
     void FixedUpdate()
     {
         target_xoz = target.position;
         target_xoz.y = player.transform.position.y;
-        Vector3 player_targetXOZ = target_xoz - player.transform.position;
+        player_targetXOZ = target_xoz - player.transform.position;
         player_target_distance = player_targetXOZ.magnitude;//根据和篮筐的距离改变命中率
-        if (Input.GetMouseButtonDown(0)&&player.currentState==Player.CharacterState.Dribbling )
-        {  
-            animator.SetTrigger("Shoot");
-            _bsketball.isdrib = false;
-            GameObject basketball = GameObject.FindGameObjectWithTag("basketball");
-            GameObject righthand = GameObject.FindGameObjectWithTag("rightHand");
-            basketball.GetComponent<SphereCollider>().enabled = false;
-            basketball.transform.parent = righthand.transform;
-            basketball.transform.localPosition = new Vector3(0, 0, player.hand_baskrtball_distance);
-           //投篮时候面朝篮筐 
-            
-            GameObject _player = GameObject.FindGameObjectWithTag("Player");
-            _player.transform.LookAt(target_xoz);
-            //状态变为shooting
-            player.switchToNewState(Player.CharacterState.Shooting);
-            //生成实际落点
-            actualPos = GenerateActualPos(player_target_distance);
+        if (Input.GetMouseButton(0)&&player.currentState==Player.CharacterState.Dribbling )
+        {
+            chargingTime += Time.deltaTime;
+            g = g_min + ((g_max - g_min) / maxChargeTime) * chargingTime;
+        }
+        if ((Input.GetMouseButtonUp(0) || chargingTime >= maxChargeTime)&& player.currentState == Player.CharacterState.Dribbling) // 鼠标松开或达到蓄力上限
+        {
+            // 进行投篮逻辑，使用当前的 g 值
+            startShooting();
+            // 重置计时和变量
+            chargingTime = 0f;
+            g = g_min;
         }
 
         if (isShoot)
@@ -103,5 +109,24 @@ public class ShootBasketball : MonoBehaviour
         //randomPosition.z = -Mathf.Abs(randomPosition.z);
         GameObject generatedActualPos = Instantiate(actualPosPrefab, target.position + randomPosition, Quaternion.identity);
         return generatedActualPos.transform;//返回实际落点的transform
+    }
+
+    public void startShooting()
+    {
+        animator.SetTrigger("Shoot");
+        _bsketball.isdrib = false;
+        GameObject basketball = GameObject.FindGameObjectWithTag("basketball");
+        GameObject righthand = GameObject.FindGameObjectWithTag("rightHand");
+        basketball.GetComponent<SphereCollider>().enabled = false;
+        basketball.transform.parent = righthand.transform;
+        basketball.transform.localPosition = new Vector3(0, 0, player.hand_baskrtball_distance);
+        //投篮时候面朝篮筐 
+
+        GameObject _player = GameObject.FindGameObjectWithTag("Player");
+        _player.transform.LookAt(target_xoz);
+        //状态变为shooting
+        player.switchToNewState(Player.CharacterState.Shooting);
+        //生成实际落点
+        actualPos = GenerateActualPos(player_target_distance);
     }
 }
