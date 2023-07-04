@@ -53,7 +53,7 @@ public class ShootBasketball : MonoBehaviour
             startShooting();
             // 重置计时和变量
             chargingTime = 0f;
-            g = g_min;
+            
         }
 
         if (isShoot)
@@ -91,6 +91,7 @@ public class ShootBasketball : MonoBehaviour
         basketball.GetComponent<Rigidbody>().useGravity = true;
         _pickupBasketball.pickupAllowed = true;
         actualPos = target;
+        g = g_min;
     }
 
     public Transform GenerateActualPos(float distance)//生成实际落点
